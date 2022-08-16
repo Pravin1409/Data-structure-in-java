@@ -1,41 +1,79 @@
-
 import java.util.*;
-class StringX
+class ArrayX
 {
-    public String str;
+    public int Arr[];
+    public ArrayX(int isize)
+    {
+        Arr=new int[isize];
+    }
     public void Accept()
     {
-    Scanner sobj=new Scanner(System.in);
-    System.out.println("Enter String:");
-    str=sobj.nextLine();
-    
-    }
-}
-class Marvellos extends StringX
-{
-    public int Count()
-    {
-        int i=0,icnt=0;
-        char Arr[]=str.toCharArray();
+        Scanner sobj=new Scanner(System.in);
+        System.out.println("Enter numbers:");
+        int i=0;
         for(i=0;i<Arr.length;i++)
         {
-            if(Arr[i]>'A'&&Arr[i]<'Z')
-            {
-                icnt++;
-            }
+            Arr[i]=sobj.nextInt();
         }
-        return icnt;
     }
+    public void Display()
+    {
+        System.out.println("Elements Are:");
+        int i=0;
+        for(i=0;i<Arr.length;i++)
+        {
+            System.out.println(Arr[i]);
+        }
+    }
+}
+class Marvellous extends ArrayX
+{
+public Marvellous(int ino)
+{
+    super(ino);
+}
+public boolean Check(int ino)
+{
+    int i=0;
+    for(i=0;i<Arr.length;i++)
+    {
+        if(Arr[i]==ino)
+        {
+            break;
+        }
+    } 
+    if(i==Arr.length)
+    {
+        return false;
+    }
+    else
+    { 
+        return true;
+    }
+}
 }
 class pro1
 {
-    public static void main(String arg []) 
+    public static void main(String arg[])
     {
-        int iRet=0;
-        Marvellos mobj=new Marvellos();
+        Scanner sobj=new Scanner(System.in);
+        int ilength=0,ino=0;
+        boolean bRet=false;
+        System.out.println("enter the length:");
+        ilength=sobj.nextInt(); 
+        Marvellous mobj=new Marvellous(ilength);
         mobj.Accept();
-        iRet=mobj.Count();
-        System.out.println("Count Are:"+iRet);
+        mobj.Display();
+        System.out.println("Enter another number:");
+        ino=sobj.nextInt();
+        bRet=mobj.Check(ino);
+        if (bRet==true)
+        { 
+            System.out.println("present"); 
+        }
+        else
+        {
+            System.out.println("not present");
+        }
     }
-   
 }

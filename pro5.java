@@ -1,46 +1,62 @@
 import java.util.*;
-class StringX
+class ArrayX
 {
-    public String str;
+    public int Arr[];
+    public ArrayX(int isize)    
+    {
+        Arr=new int[isize];
+    }
     public void Accept()
     {
         Scanner sobj=new Scanner(System.in);
-        System.out.println("Enter string:");
-        str=sobj.nextLine();
-
+        int i=0;
+        System.out.println("Enter elements:");
+        for(i=0;i<Arr.length;i++)
+        {
+            Arr[i]=sobj.nextInt();
+        } 
     }
     public void Display()
     {
-        System.out.println("hello:"+str);
+        System.out.println("elements Are:");
+        for(int i=0;i<Arr.length;i++)
+        {
+            System.out.println(Arr[i]);
+        }
     }
 }
-class Marvellous extends StringX
+class Marvellous extends ArrayX
 {
-    public String Reverse()
+    public Marvellous(int ino)
     {
-        char Arr[]=str.toCharArray();
-        int start=0,end=Arr.length-1;
-        char temp;
-        while(start<end)
+        super(ino);
+    }
+    public int product()
+    {
+        int i=0,mul=1;
+        for(i=0;i<Arr.length;i++)
         {
-            temp=Arr[start];
-            Arr[start]=Arr[end];
-            Arr[end]=temp;
-            start++;
-            end--;
+            if(Arr[i]%2!=0)
+            {
+                mul=mul*Arr[i];
+            }
         }
-        return new String(Arr);
+        return mul;
     }
 }
 class pro5
 {
-    public static void main(String Arg[])
+    public static void main(String arg[])
     {
-        Marvellous mobj=new Marvellous();
-        String s;
+        Scanner sobj=new Scanner(System.in);
+        int ilength=0;
+        System.out.println("Enter length:");
+        ilength=sobj.nextInt();
+        Marvellous mobj=new Marvellous(ilength);
+        int iRet=0;
         mobj.Accept();
         mobj.Display();
-        s=mobj.Reverse();
-        System.out.println("String Are:"+s);
+        iRet=mobj.product();
+        System.out.println("product Are:"+iRet);
     }
 }

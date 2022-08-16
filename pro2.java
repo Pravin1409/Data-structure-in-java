@@ -1,41 +1,73 @@
-
 import java.util.*;
-class StringX
+
+
+class ArrayX
 {
-    public String str;
+    public int Arr[];
+    public ArrayX(int isize)
+    {
+        Arr=new int[isize];
+    }
     public void Accept()
     {
-    Scanner sobj=new Scanner(System.in);
-    System.out.println("Enter String:");
-    str=sobj.nextLine();
-    
+        Scanner sobj=new Scanner(System.in);
+        int i=0;
+        System.out.println("enter number:");
+        for(i=0;i<Arr.length;i++) 
+        {
+            Arr[i]=sobj.nextInt();
+        }
     }
-}
-class Marvellos extends StringX
-{
-    public int Count()
+    public void Display()
     {
-        int i=0,icnt=0;
-        char Arr[]=str.toCharArray();
+        System.out.println("Elements are:");
+        int i=0;
         for(i=0;i<Arr.length;i++)
         {
-            if(Arr[i]>'a'&&Arr[i]<'z')
-            {
-                icnt++;
-            }
+            System.out.println(Arr[i]);
         }
-        return icnt;
     }
 }
-class pro1
+class Marvellous extends ArrayX
 {
-    public static void main(String arg []) 
+    public Marvellous(int ino)
     {
-        int iRet=0;
-        Marvellos mobj=new Marvellos();
-        mobj.Accept();
-        iRet=mobj.Count();
-        System.out.println("Count Are:"+iRet);
+        super(ino);
     }
-   
+    public int First(int no)
+    {
+        int i=0;
+        for(i=0;i<Arr.length;i++)
+        {
+            if(Arr[i]==no)
+            {
+                break;
+            }
+        }
+        if(i==Arr.length)
+        {
+            return -1;
+        }
+        else
+        {
+            return i;
+        }
+    }
+}
+class pro2
+{
+    public static void main(String Arg[])
+    {
+        Scanner sobj=new Scanner(System.in);
+        int ilength=0,ino=0,iRet=0;
+        System.out.println("Enter length:");
+        ilength=sobj.nextInt();
+        Marvellous mobj=new Marvellous(ilength);
+        mobj.Accept();
+        mobj.Display();
+        System.out.println("Enter another number:");
+        ino=sobj.nextInt();
+        iRet=mobj.First(ino);
+        System.out.println("index at:"+iRet); 
+    }
 }
