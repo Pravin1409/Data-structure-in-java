@@ -1,33 +1,45 @@
-import java.util.Scanner;
-class Pattern
+import java.util.*;
+class StringX
 {
-    public void Pattern(int iRow,int iCol)
+    public String str;
+    public void Accept()
+
     {
-        int i=0,j=0;
-        for(i=iRow;i>0;i--)
+        Scanner sobj=new Scanner(System.in);
+        System.out.println("Enter string:");
+        str=sobj.nextLine();
+    }
+}
+class Marvellous extends StringX
+{
+    int i=0;
+    char Arr[]=str.toCharArray();
+    public boolean Check()
+    {
+        if(Arr[i]=='a'||Arr[i]=='e'||Arr[i]=='o'||Arr[i]=='u'||Arr[i]=='i')
         {
-            for(j=iCol;j>0;j--)
-            {
-                System.out.print(i);
-                
-                System.out.print("\t");
-            }
-            System.out.println();
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
-class pro4 
+class pro4
 {
-    public static void main(String arg[])
+    public static void main(String[] args) 
     {
-        Scanner sobj=new Scanner(System.in);
-        System.out.println("Enter Row number:");
-        int iRow=sobj.nextInt();
-
-        System.out.println("Enter col number:");
-        int iCol=sobj.nextInt();
-        Pattern p=new Pattern();
-        p.Pattern(iRow, iCol);
-
+        boolean bRet=false;
+        Marvellous mobj=new Marvellous();
+        mobj.Accept();;
+        if(bRet==true)    
+        {
+            System.out.println("yes");
+        }
+        else
+        {
+            System.out.println("no");
+        }
     }
 }

@@ -1,49 +1,41 @@
+
 import java.util.*;
-
-
-class Pattern
+class StringX
 {
-    public void Pattern(int irow,int icol)
+    public String str;
+    public void Accept()
     {
-        int i=0,j=0;
-        char ch='A';
-        char ch1='a';
-        for(i=0,ch='A',ch1='a';i<=irow;i++,ch++,ch1++)
-        {
-            for(j=0,ch='A',ch1='a';j<=icol;j++,ch++,ch1++)
-            {
-             
-                if(i%2==0)
-                {
-                 System.out.print(ch);
-                 System.out.print("\t");
-                }
-                else
-                {
-                    System.out.print(ch1);
-                    System.out.print("\t");
-                }
-            }
-            System.out.println();
-            
-        }
-       
-    } 
-}
-class pro2 
-{
-    public static void main(String arg[])
-    {
-        Scanner sobj=new Scanner(System.in);
-        int iRow=0,iCol=0;
-        System.out.println("Enter row number:");
-        iRow=sobj.nextInt();
-
-        System.out.println("Enter Cols number:");
-        iCol=sobj.nextInt();
-        Pattern p=new Pattern();
-         
-        p.Pattern(iRow,iCol);
-
+    Scanner sobj=new Scanner(System.in);
+    System.out.println("Enter String:");
+    str=sobj.nextLine();
+    
     }
+}
+class Marvellos extends StringX
+{
+    public int Count()
+    {
+        int i=0,icnt=0;
+        char Arr[]=str.toCharArray();
+        for(i=0;i<Arr.length;i++)
+        {
+            if(Arr[i]>'a'&&Arr[i]<'z')
+            {
+                icnt++;
+            }
+        }
+        return icnt;
+    }
+}
+class pro1
+{
+    public static void main(String arg []) 
+    {
+        int iRet=0;
+        Marvellos mobj=new Marvellos();
+        mobj.Accept();
+        iRet=mobj.Count();
+        System.out.println("Count Are:"+iRet);
+    }
+   
 }

@@ -1,32 +1,46 @@
-import java.util.Scanner;
-
-class Pattern
+import java.util.*;
+class StringX
 {
-  public void pattern(int iRow,int iCol)
-  {
-    int i=0,j=0;
-    for(i=1;i<=iRow;i++)
-    {
-        for(j=1;j<=i;j++)
-        {
-            System.out.print(i);
-        }
-        System.out.println();
-    }
-  }
-
-}
-class pro5 
-{
-    public static void main(String arg[])    
+    public String str;
+    public void Accept()
     {
         Scanner sobj=new Scanner(System.in);
-        System.out.println("Enter Row:");
-        int iRow=sobj.nextInt();
-        System.out.println("Enter col:");
-        int iCol=sobj.nextInt();
+        System.out.println("Enter string:");
+        str=sobj.nextLine();
 
-        Pattern p=new Pattern();
-        p.pattern(iRow,iCol);
+    }
+    public void Display()
+    {
+        System.out.println("hello:"+str);
+    }
+}
+class Marvellous extends StringX
+{
+    public String Reverse()
+    {
+        char Arr[]=str.toCharArray();
+        int start=0,end=Arr.length-1;
+        char temp;
+        while(start<end)
+        {
+            temp=Arr[start];
+            Arr[start]=Arr[end];
+            Arr[end]=temp;
+            start++;
+            end--;
+        }
+        return new String(Arr);
+    }
+}
+class pro5
+{
+    public static void main(String Arg[])
+    {
+        Marvellous mobj=new Marvellous();
+        String s;
+        mobj.Accept();
+        mobj.Display();
+        s=mobj.Reverse();
+        System.out.println("String Are:"+s);
     }
 }
