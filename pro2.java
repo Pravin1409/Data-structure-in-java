@@ -1,32 +1,63 @@
 import java.util.*;
-class array
+class ArrayX
 {
-    public int countOdd(int ino)
+  public int Arr[];
+  public ArrayX(int isize)
+  {
+      Arr=new int [isize];
+  }
+  public void Accept()
+  {
+      Scanner sobj=new Scanner(System.in);
+      int i=0;
+      System.out.println("Enter number's:");
+      for(i=0;i<Arr.length;i++)
+      {
+          Arr[i]=sobj.nextInt();
+      }
+  }
+
+  public void Display()
+  {
+      System.out.println("numbers are:");
+      int i=0;
+      for(i=0;i<Arr.length;i++)
+      {
+          System.out.println(Arr[i]);
+      }
+  }
+}
+
+class Marvellous extends ArrayX
+{
+    public Marvellous(int no)
     {
-        int icnt=0,iDigit=0;
-        while(ino!=0)
+        super(no);
+    }
+    public void show()
+    {
+        int i=0;
+        for(i=0;i<Arr.length;i++)
         {
-            iDigit=ino%10;
-            if(iDigit%2!=0)
+            if(Arr[i]%5==0)
             {
-                icnt++;
+                System.out.println(Arr[i]);
             }
-            ino=ino/10;
         }
-        return icnt;
-    }
-
-}
-class pro2 {
-    public static void main(String arg[])
-    {
-        Scanner obj=new Scanner(System.in);
-        int ino=0,iRet=0;
-
-        System.out.println("Enter the number:");
-        ino=obj.nextInt();
-        array a=new array();
-        iRet = a.countOdd(ino);
-        System.out.println("Count are:"+iRet);
     }
 }
+class pro2
+{
+     public static void main(String[] args) 
+     {
+         Scanner sobj=new Scanner(System.in);
+         int ilength=0;
+         System.out.println("Enter length");
+         ilength=sobj.nextInt();
+        Marvellous mobj=new Marvellous(ilength);
+        mobj.Accept();
+        mobj.Display();
+        System.out.println("Result:");
+        mobj.show();
+     }
+} 

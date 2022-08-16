@@ -1,18 +1,17 @@
 import java.util.*;
-
 class ArrayX
 {
     public int Arr[];
     public ArrayX(int isize)
     {
         Arr=new int[isize];
-
     }
+
     public void Accept()
     {
         Scanner sobj=new Scanner(System.in);
         int i=0;
-        System.out.println("Enter the number:");
+        System.out.println("Enter:");
         for(i=0;i<Arr.length;i++)
         {
             Arr[i]=sobj.nextInt();
@@ -21,13 +20,14 @@ class ArrayX
 
     public void Display()
     {
-        System.out.println("Elements Are:");
         int i=0;
+        System.out.println("Elements Are:");
         for(i=0;i<Arr.length;i++)
         {
             System.out.println(Arr[i]);
         }
     }
+  
 }
 class Marvellous extends ArrayX
 {
@@ -36,31 +36,38 @@ class Marvellous extends ArrayX
         super(ivalue);
     }
 
-    public void Show()
+    public int Diff()
     {
-        int i=0;
+        int i=0,isum=0,psum=0;
         for(i=0;i<Arr.length;i++)
         {
-            if(Arr[i]%3==0&&Arr[i]%5==0)
+            if(Arr[i]%2==0)
             {
-                System.out.println(Arr[i]);
+                isum=isum+Arr[i];
+            }
+            else if(Arr[i]%2!=0)
+            {
+                psum=psum+Arr[i];
             }
         }
+        return isum-psum;
     }
 }
-class pro4
+class pro
 {
     public static void main(String arg[])
     {
-        Scanner sobj=new Scanner(System.in);
-        int ilength=0;
-        System.out.println("Enter size:");
+        Scanner sobj= new Scanner(System.in);
+         int ilength=0;
+         int iRet=0;
+        System.out.println("Enter the lendth:");
         ilength=sobj.nextInt();
+
         Marvellous mobj=new Marvellous(ilength);
         mobj.Accept();
         mobj.Display();
-        System.out.println("Elements Are:");
-        mobj.Show();
-
+        iRet=mobj.Diff();
+        System.out.println("Difference is:"+iRet);
+      
     }
 }
