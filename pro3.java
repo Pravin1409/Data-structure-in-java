@@ -1,62 +1,33 @@
 import java.util.*;
-class ArrayX
+class array
 {
-    public int Arr[];
-    public ArrayX(int isize)
+    public int Range(int ino)
     {
-        Arr=new int[isize];
-    }
-    public void Accept()
-    {
-        Scanner sobj=new Scanner(System.in);
-        int i=0;
-        System.out.println("Enter numbers");
-        for(i=0;i<Arr.length;i++)
+        int icnt=0;
+        int iDigit=0;
+        while(ino!=0)
         {
-            Arr[i]=sobj.nextInt();
+            iDigit=ino%10;
+            if(iDigit>3&&iDigit<7)
+            {
+                icnt++;
+            }
+            ino=ino/10;
         }
-    }
-    public void Display()
-    {
-        System.out.println("elements are:");
-        int i=0;
-        for(i=0;i<Arr.length;i++)
-        {
-            System.out.println(Arr[i]);
-        }
+        return icnt++;
     }
 }
-class Marvellous extends ArrayX
-{
-    public Marvellous(int ino)
-    {
-        super(ino);
-    }
-    public int Last(int no)
-    {
-        int i=0,index=-1;
-        for(i=0;i<Arr.length;i++)
-        {
-            index=i;
-        }
-        return index;
-    }
-}
-class pro3
-{
+class pro3 {
     public static void main(String arg[])
     {
-        Scanner sobj=new Scanner(System.in);
-        int ilength=0,ino=0,iRet=0;
-        System.out.println("Enter length:");
-        ilength=sobj.nextInt();
+        Scanner obj=new Scanner(System.in);
+        int ino=0,iRet=0;
 
-        Marvellous mobj=new Marvellous(ilength);
-        mobj.Accept();
-        mobj.Display();
-        System.out.println("Enter anothr number:");
-        ino=sobj.nextInt();
-        iRet=mobj.Last(ino);
-        System.out.println("index at:"+iRet);
+        System.out.println("Enter the number:");
+        ino=obj.nextInt();
+        array a=new array();
+        iRet = a.Range(ino);
+        System.out.println("Count are:"+iRet);
     }
 }
+
