@@ -1,37 +1,33 @@
-import java.util.*;
-class Pro
+import java.util.Scanner;
+class Pattern
 {
-    public void Display(int iRow,int iCol)
+    public void Pattern(int iRow,int iCol)
     {
         int i=0,j=0;
-        for(i=1;i<=iRow;i++)
+        for(i=iRow;i>0;i--)
         {
-            for(j=1;j<=iCol;j++)
+            for(j=iCol;j>0;j--)
             {
-                if(j%2==0)
-                {
-                    System.out.print("#\t");
-                }
-                else
-                {
-                    System.out.print("*\t");
-                }
+                System.out.print(i);
+                
+                System.out.print("\t");
             }
             System.out.println();
         }
     }
 }
-
 class pro4 
 {
-public static void main(String[] args) {
-    Scanner sobj=new Scanner(System.in);
-    int i=0,j=0;
-    System.out.println("Enter row");
-    i=sobj.nextInt();
-    System.out.println("Enter col:");
-    j=sobj.nextInt();
-    Pro p=new Pro();
-    p.Display(i, j);
-}
+    public static void main(String arg[])
+    {
+        Scanner sobj=new Scanner(System.in);
+        System.out.println("Enter Row number:");
+        int iRow=sobj.nextInt();
+
+        System.out.println("Enter col number:");
+        int iCol=sobj.nextInt();
+        Pattern p=new Pattern();
+        p.Pattern(iRow, iCol);
+
+    }
 }
