@@ -1,41 +1,33 @@
-import java.util.*;
-class StringX
+import java .util.*;
+class Pattern
 {
-    public String str;
-    public void Accept()
+    public void pattern(int iRow,int iCol)
     {
-        Scanner sobj=new Scanner(System.in);
-        System.out.println("Enter String:");
-        str=sobj.nextLine();
+        int i=0,j=0;
+        for(i=1;i<=iRow;i++)
+        {
+            for(j=0;j<=iCol;j++)
+            {
+                System.out.print("*\t");
+            }
+            System.out.println();
+        }
     }
 }
-class Marvellos extends StringX
+
+class pro1 
 {
-    char Arr[]=str.toCharArray();
-    public void Display(int iRow,int iCol)
-    {
-      int i=0,j=0;
-      char ch=Arr[i];
-      for(i=1,ch=Arr[i];i<=iRow;i++,ch++)
-      {
-          for(j=1,ch=Arr[i];j<=iCol;j++,ch++)
-          {
-              System.out.println(ch);
-              System.out.print("\t");
-          }
-          System.out.println();
-      }
-    }
+public static void main(String arg[])    
+{
+    Scanner sobj=new Scanner(System.in);
+    int iRow=0,iCol=0;
+    System.out.println("enter row number :");
+    iRow=sobj.nextInt();
+    System.out.println("Enter Second number:");
+    iCol=sobj.nextInt();
+    Pattern p=new Pattern();
+    p.pattern(iRow, iCol);
+
+    
 }
-class pro1
- {
-   public static void main(String[] args) {
-       Scanner sobj=new Scanner(System.in);
-       Marvellos mobj=new Marvellos();
-       int i=0,j=0;
-       i=sobj.nextInt();
-       j=sobj.nextInt();
-       mobj.Accept();
-       mobj.Display(i,j);
-   } 
 }
